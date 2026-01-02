@@ -36,7 +36,7 @@ Any mismatch results in Java silently not being compiled
 # Buildozer Configuration
 
 Minimal additions are required in buildozer.spec:
-
+<pre>
 - Include Java sources
 android.add_src = src
 
@@ -48,7 +48,7 @@ android.permissions = POST_NOTIFICATIONS
 
 # Python dependencies
 requirements = python3,kivy,pyjnius
-
+</pre>
 
 - This configuration ensures:
 
@@ -64,7 +64,8 @@ Java BroadcastReceiver (Alarm Entry Point)
 
 The Java side is responsible for executing code when the alarm fires.
 
-MyReceiver.java
+#MyReceiver.java
+<pre>
 package org.redstoon.pushfcmdemo;
 
 import android.content.BroadcastReceiver;
@@ -103,7 +104,7 @@ public class MyReceiver extends BroadcastReceiver {
         nm.notify((int) System.currentTimeMillis(), builder.build());
     }
 }
-
+</pre>
 
 What this does:
 
@@ -128,7 +129,8 @@ Wrap it in a PendingIntent
 Schedule it with AlarmManager
 
 Example logic (simplified):
-
+<pre>
+    
 def schedule_alarm():
     context = PythonActivity.mActivity
     alarm = context.getSystemService(Context.ALARM_SERVICE)
@@ -144,7 +146,7 @@ def schedule_alarm():
     trigger_time = int((time() + 10) * 1000)  # 10 seconds later
     alarm.setExact(AlarmManager.RTC_WAKEUP, trigger_time, pending)
 
-
+</pre>
 
 
 Once scheduled, the Android system handles execution — Python does not need to be running.
@@ -170,7 +172,7 @@ What the Hook Does
 The before_apk_assemble hook runs after Buildozer generates Android sources and before the APK is built.
 
 Conceptually, it injects the following into the manifest:
-
+<pre>
 <receiver
     android:name="org.redstoon.pushfcmdemo.MyReceiver"
     android:exported="true">
@@ -178,17 +180,17 @@ Conceptually, it injects the following into the manifest:
         <action android:name="com.redstoon.ALARM_ACTION"/>
     </intent-filter>
 </receiver>
-
+</pre>
 
 Simplified hook logic:
-
+<pre>
 def before_apk_assemble(toolchain):
     # Locate AndroidManifest.xml
     # Parse it
     # Inject <receiver> entry
     # Save changes before APK assembly
 
-
+</pre>
 This step is mandatory.
 Without it:
 
