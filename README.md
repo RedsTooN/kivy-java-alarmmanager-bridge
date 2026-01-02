@@ -11,7 +11,7 @@ The solution bridges Python UI logic with Java background execution using PyJNIu
 # Project Structure (Critical)
 
 Java sources must be placed under a valid src/ hierarchy that matches the Java package name, otherwise Buildozer will not compile them.
-
+```
 project_root/
 │
 ├── buildozer.spec          # Buildozer configuration
@@ -23,7 +23,7 @@ project_root/
 │               └── MyReceiver.java   # BroadcastReceiver
 └── p4a/
     └── hook.py             # Buildozer patcher (manifest injection)
-
+```
 
 # Important notes:
 
@@ -145,6 +145,8 @@ def schedule_alarm():
     alarm.setExact(AlarmManager.RTC_WAKEUP, trigger_time, pending)
 
 
+
+
 Once scheduled, the Android system handles execution — Python does not need to be running.
 
 Manifest Injection (Patcher Hook)
@@ -207,5 +209,9 @@ Implement a BroadcastReceiver to handle alarms
 Schedule alarms from Python using AlarmManager
 
 Inject the receiver into the manifest using a Buildozer hook
+
+
+
+
 
 With these pieces in place, a reliable bridge between Kivy (Python) and Android’s native AlarmManager is established, enabling scheduled tasks that survive app termination.
