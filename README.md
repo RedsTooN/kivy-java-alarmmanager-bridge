@@ -2,13 +2,13 @@
 
 A working example of a Kivy (Python) Android app packaged with Buildozer that embeds Java code to schedule Android AlarmManager tasks which execute even when the app is not running.
 
-Overview
+# Overview
 
 This project demonstrates how to reliably combine Kivy (Python) and native Java inside a single Android APK built with Buildozer, allowing Python code to schedule Android AlarmManager events that trigger even after the app is closed or killed.
 
 The solution bridges Python UI logic with Java background execution using PyJNIus, a properly compiled Java BroadcastReceiver, and a Buildozer patch hook that injects the receiver into the Android manifest.
 
-Project Structure (Critical)
+# Project Structure (Critical)
 
 Java sources must be placed under a valid src/ hierarchy that matches the Java package name, otherwise Buildozer will not compile them.
 
@@ -25,7 +25,7 @@ project_root/
     └── hook.py             # Buildozer patcher (manifest injection)
 
 
-Important notes:
+# Important notes:
 
 src/ is treated as a Java source directory by Buildozer
 
@@ -33,14 +33,14 @@ The directory tree must match the Java package declaration
 
 Any mismatch results in Java silently not being compiled
 
-Buildozer Configuration
+# Buildozer Configuration
 
 Minimal additions are required in buildozer.spec:
 
-# Include Java sources
+- Include Java sources
 android.add_src = src
 
-# Register patcher hook
+- Register patcher hook
 p4a.hook = ./p4a/hook.py
 
 # Permissions required for notifications
@@ -50,7 +50,7 @@ android.permissions = POST_NOTIFICATIONS
 requirements = python3,kivy,pyjnius
 
 
-This configuration ensures:
+- This configuration ensures:
 
 Java sources are compiled into the APK
 
