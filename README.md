@@ -172,6 +172,7 @@ What the Hook Does
 The before_apk_assemble hook runs after Buildozer generates Android sources and before the APK is built.
 
 Conceptually, it injects the following into the manifest:
+
 <pre>
 <receiver
     android:name="org.redstoon.pushfcmdemo.MyReceiver"
