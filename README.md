@@ -129,7 +129,7 @@ Wrap it in a PendingIntent
 Schedule it with AlarmManager
 
 Example logic (simplified):
-<pre>
+``` python
     
 def schedule_alarm():
     context = PythonActivity.mActivity
@@ -146,7 +146,7 @@ def schedule_alarm():
     trigger_time = int((time() + 10) * 1000)  # 10 seconds later
     alarm.setExact(AlarmManager.RTC_WAKEUP, trigger_time, pending)
 
-</pre>
+```
 
 
 Once scheduled, the Android system handles execution — Python does not need to be running.
@@ -173,7 +173,7 @@ The before_apk_assemble hook runs after Buildozer generates Android sources and 
 
 Conceptually, it injects the following into the manifest:
 
-<pre>
+``` python
     
 <receiver
     android:name="org.redstoon.pushfcmdemo.MyReceiver"
@@ -183,7 +183,7 @@ Conceptually, it injects the following into the manifest:
     </intent-filter>
 </receiver>
             
-</pre>
+```
 
 Simplified hook logic:
 ``` python
