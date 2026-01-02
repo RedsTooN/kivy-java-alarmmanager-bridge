@@ -204,7 +204,7 @@ The receiver will never be called
 
 No crash, no logs, no notification
 
-Summary
+# Summary
 
 Place Java sources under src/ with correct package naming
 
