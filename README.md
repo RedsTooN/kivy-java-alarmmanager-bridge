@@ -174,6 +174,7 @@ The before_apk_assemble hook runs after Buildozer generates Android sources and 
 Conceptually, it injects the following into the manifest:
 
 <pre>
+    
 <receiver
     android:name="org.redstoon.pushfcmdemo.MyReceiver"
     android:exported="true">
@@ -181,6 +182,7 @@ Conceptually, it injects the following into the manifest:
         <action android:name="com.redstoon.ALARM_ACTION"/>
     </intent-filter>
 </receiver>
+            
 </pre>
 
 Simplified hook logic:
