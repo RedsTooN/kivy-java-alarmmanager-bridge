@@ -129,6 +129,7 @@ Wrap it in a PendingIntent
 Schedule it with AlarmManager
 
 Example logic (simplified):
+#main.py
 ``` python
     
 def schedule_alarm():
@@ -186,6 +187,7 @@ Conceptually, it injects the following into the manifest:
 ```
 
 Simplified hook logic:
+#hook.py
 ``` python
 def before_apk_assemble(toolchain):
     # Locate AndroidManifest.xml
