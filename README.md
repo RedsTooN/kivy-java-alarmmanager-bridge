@@ -11,7 +11,7 @@ The solution bridges Python UI logic with Java background execution using PyJNIu
 # Project Structure (Critical)
 
 Java sources must be placed under a valid src/ hierarchy that matches the Java package name, otherwise Buildozer will not compile them.
-```
+<pre>
 project_root/
 │
 ├── buildozer.spec          # Buildozer configuration
@@ -23,7 +23,7 @@ project_root/
 │               └── MyReceiver.java   # BroadcastReceiver
 └── p4a/
     └── hook.py             # Buildozer patcher (manifest injection)
-```
+</pre>
 
 # Important notes:
 
