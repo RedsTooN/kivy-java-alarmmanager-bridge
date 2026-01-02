@@ -186,14 +186,13 @@ Conceptually, it injects the following into the manifest:
 </pre>
 
 Simplified hook logic:
-<pre>
+``` python
 def before_apk_assemble(toolchain):
     # Locate AndroidManifest.xml
     # Parse it
     # Inject <receiver> entry
     # Save changes before APK assembly
-
-</pre>
+```
 This step is mandatory.
 Without it:
 
