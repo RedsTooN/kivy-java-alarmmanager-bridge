@@ -65,7 +65,7 @@ Java BroadcastReceiver (Alarm Entry Point)
 The Java side is responsible for executing code when the alarm fires.
 
 #MyReceiver.java
-<pre>
+``` java
 package org.redstoon.pushfcmdemo;
 
 import android.content.BroadcastReceiver;
@@ -104,7 +104,7 @@ public class MyReceiver extends BroadcastReceiver {
         nm.notify((int) System.currentTimeMillis(), builder.build());
     }
 }
-</pre>
+```
 
 What this does:
 
